@@ -1,6 +1,7 @@
-from dotenv import load_dotenv
+from dotenv_config import Config
+config = Config('.env')
 import os
 
-load_dotenv()
-USER=os.getenv('USER')
-PASS=os.getenv('PASS')
+
+USER=config('USER')
+PASS=config('PASS')

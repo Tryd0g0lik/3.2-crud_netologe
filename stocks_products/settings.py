@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from config import USER, PASS
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -83,6 +85,8 @@ DATABASES = {
         'NAME': 'netology_stocks_products',
         'HOST': '127.0.0.1',
         'PORT': '5432',
+        'USER': USER,
+        'PASSWORD': PASS,
     }
 }
 

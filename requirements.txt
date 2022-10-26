@@ -1,6 +1,4 @@
 django
 djangorestframework
 psycopg2-binary
-ListAPIView
-serializers
-dotenv
+
