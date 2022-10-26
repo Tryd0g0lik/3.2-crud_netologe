@@ -3,9 +3,19 @@ from django.db import models
 
 
 class Product(models.Model):
-    title = models.CharField(max_length=60, unique=True)
-    description = models.TextField(null=True, blank=True)
+    title = models.CharField(max_length=60, unique=True,
+                             verbose_name='Название',
+                             default='None')
+    description = models.TextField(null=True, blank=True,
+                                   verbose_name='Описание')
+    def __str__(self):
 
+        return "%s" % (self.title,)
+
+    class Meta:
+        verbose_name='Товар'
+        verbose_name_plural = 'Продукты'
+        ordering=['title',]
 
 class Stock(models.Model):
     address = models.CharField(max_length=200, unique=True)
@@ -15,12 +25,21 @@ class Stock(models.Model):
         related_name='stocks',
     )
 
+    def __str__(self):
+        return """%s""" % (self.address,)
+
+    class Meta:
+        ordering=['address',]
+
+
+
 
 class StockProduct(models.Model):
     stock = models.ForeignKey(
         Stock,
         on_delete=models.CASCADE,
         related_name='positions',
+        verbose_name='Склады'
     )
     product = models.ForeignKey(
         Product,
