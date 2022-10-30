@@ -22,6 +22,7 @@ class ProductViewSet(ModelViewSet):
 
 
 
+
 class StockViewSet(ModelViewSet):
     queryset = Stock.objects.all()
     serializer_class = StockSerializer
