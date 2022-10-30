@@ -8,10 +8,12 @@ from logistic.views import ProductViewSet, StockViewSet
 
 router = DefaultRouter()
 router.register('products', ProductViewSet)
+# router.register('products/<int:id>', ProductViewSet)
 router.register('stocks', StockViewSet)
 
 # urlpatterns = router.urls
 
 urlpatterns = [
 	# path('', logistic.views.ProductViewSet)
+	# path('product/<int:id>', ProductViewSet)
 ] + router.urls
