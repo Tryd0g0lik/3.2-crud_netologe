@@ -22,29 +22,31 @@ class Stock(models.Model):
     products = models.ManyToManyField(
         Product,
         through='StockProduct',
-        related_name='stocks',
+
     )
 
     def __str__(self):
         return """%s""" % (self.address,)
 
     class Meta:
+        verbose_name = 'Адрес склада'
+        verbose_name_plural='Адреса'
         ordering=['address',]
-
-
-
 
 class StockProduct(models.Model):
     stock = models.ForeignKey(
         Stock,
         on_delete=models.CASCADE,
+        verbose_name='Склады',
         related_name='positions',
-        verbose_name='Склады'
+
     )
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
         related_name='positions',
+
+
     )
     quantity = models.PositiveIntegerField(default=1)
     price = models.DecimalField(
