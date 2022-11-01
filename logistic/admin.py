@@ -4,6 +4,7 @@ from logistic.models import *
 
 class StockProductInline(admin.TabularInline):
 	model = StockProduct
+	list_display = ['stock', 'product', 'quantity', 'price', ]
 	extra=0
 
 
@@ -20,5 +21,7 @@ class StockAdmin(admin.ModelAdmin):
 
 	inlines=[StockProductInline, ]
 
+# class StockProductAdmin(admin.ModelAdmin):
+# 	list_display = ['stock', 'product', 'quantity', 'price',]
 # admin.site.register(Product, ProductAdmin)
 # admin.site.register(Stock, StockAdmin)
