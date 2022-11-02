@@ -18,18 +18,15 @@ class ProductViewSet(ModelViewSet):
     search_fields=['id', 'title', 'description']
     filterset_fields=['id',]
 
-
-
-
-
-
 class StockViewSet(ModelViewSet):
     queryset = Stock.objects.all()
     serializer_class = StockSerializer
-    # при необходимости добавьте параметры фильтрации
 
+    # при необходимости добавьте параметры фильтрации
     filter_backends=[SearchFilter, DjangoFilterBackend]
     search_fields=['address']
     filterset_fields=['id',]
 
-
+class StockProductViewSet(ModelViewSet):
+    queryset=StockProduct.objects.all()
+    serializer_class=StockSerializer
