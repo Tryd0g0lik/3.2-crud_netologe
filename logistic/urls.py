@@ -16,4 +16,4 @@ router.register('stocks', StockViewSet)
 urlpatterns = [
 	# path('', logistic.views.ProductViewSet)
 	# path('product/<int:id>', ProductViewSet)
-] + router.urls
+] + router.urls # просто добавляем новые маршруты

@@ -25,5 +25,11 @@ class ProductViewSet(ModelViewSet):
 class StockViewSet(ModelViewSet):
     queryset = Stock.objects.all()
     serializer_class = StockSerializer
+
     # при необходимости добавьте параметры фильтрации
 
+class StockProductViewSet(ModelViewSet):
+    queryset=StockProduct.objects.all()
+    serializer_class=StockSerializer
+    search_fields=['id', 'product', 'stock', ]
+    filterset_filds = ['id', ]
