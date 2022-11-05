@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from logistic.models import *
 
 from logistic.models import Product, Stock
-from logistic.serializers import ProductSerializer, StockSerializer
+from logistic.serializers import ProductSerializer, StockSerializer, ProductPositionSerializer
 
 
 
@@ -29,4 +29,8 @@ class StockViewSet(ModelViewSet):
 
 class StockProductViewSet(ModelViewSet):
     queryset=StockProduct.objects.all()
-    serializer_class=StockSerializer
+    serializer_class=ProductPositionSerializer
+    filter_backends = [SearchFilter, DjangoFilterBackend]
+    filterset_fields=['product', 'quantity', 'price', 'stock']
+
+

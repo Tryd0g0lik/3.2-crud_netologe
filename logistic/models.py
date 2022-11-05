@@ -18,7 +18,7 @@ class Product(models.Model):
         ordering=['title',]
 
 class Stock(models.Model):
-    address = models.CharField(max_length=200, unique=True)
+    address = models.CharField(max_length=200)
     products = models.ManyToManyField(
         Product,
         through='StockProduct',
